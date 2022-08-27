@@ -45,3 +45,17 @@ todoForm.addEventListener("submit", (e) => {
     saveTodo(inputValue);
   }
 });
+
+document.addEventListener("click", (e) => {
+  // click em todo elemento do dom
+  const targetEl = e.target;
+  const parentEl = targetEl.closest("div"); //pegando o elemento pai
+
+  if (targetEl.classList.contains("finish-todo")) {
+    parentEl.classList.toggle("done");
+  }
+
+  if (targetEl.classList.contains("remove-todo")) {
+    parentEl.remove();
+  }
+});
